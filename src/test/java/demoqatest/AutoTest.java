@@ -1,4 +1,4 @@
 package demoqatest;
 
-public class AutoTest {12
+public class AutoTest {
 }
