@@ -15,6 +15,7 @@ public class AutoTest {
     static void configure() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
+        Configuration.holdBrowserOpen = true;
 
     }
 
@@ -55,6 +56,17 @@ public class AutoTest {
         $("#result").shouldHave(text("commands"),
                 text("react"),
                 text("general"));
+    }
+
+    @Test
+    void formRadioButton() {
+        //открываем страницу формы
+        open("https://demoqa.com/radio-button");
+        //выбираем вариант "Yes"
+        $(".custom-control").click();
+        //проверка результатов
+
+
     }
 }
 
