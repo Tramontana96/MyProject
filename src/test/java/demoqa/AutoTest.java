@@ -8,8 +8,8 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class AutoTest {
 
@@ -74,6 +74,8 @@ public class AutoTest {
     void formPracticeForm() {
         //открываем страницу формы
         open("https://demoqa.com/automation-practice-form");
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
         //имя
         $("#firstName").setValue("Mihailo");
         //фамилия
@@ -100,8 +102,13 @@ public class AutoTest {
         //файл(картинка)
         $("#uploadPicture").uploadFile(new File("src/test/resources/1.jpg"));
         //текущий адрес
+        $("#currentAddress").setValue("Калинина 74");
         //штат
+        $("#react-select-3-input").setValue("NCR").pressEnter();
         //город
+        $("#react-select-4-input").setValue("Delhi").pressEnter();
+        //отправка результата
+        $("#submit").click();
         //проверка результата
 
 
