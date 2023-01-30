@@ -50,10 +50,11 @@ public class AutoTest {
         //выбрать папку React
         $(byText("React")).click();
         //выбрать папку General
-
+        $(".rct-title").click();
         //проверка результатов
-
-
+        $("#result").shouldHave(text("commands"),
+                text("react"),
+                text("general"));
     }
 }
 
