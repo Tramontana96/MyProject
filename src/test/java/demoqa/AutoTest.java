@@ -4,8 +4,8 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.name;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -18,9 +18,8 @@ public class AutoTest {
 
     }
 
-
     @Test
-    void formTest() {
+    void formTextBox() {
             //открываем страницу формы
             open("https://demoqa.com/text-box");
             //заполняем поле имени
@@ -39,4 +38,24 @@ public class AutoTest {
                 text("Калинина 62"),
                 text("Калинина 62"));
     }
+
+    @Test
+    void formCheckBox() {
+        //открываем страницу формы
+        open("https://demoqa.com/checkbox");
+        //плюсом раскрыть всё дерево
+        $(".rct-option").click();
+        //выбрать папку Commands
+        $(".rct-title").click();
+        //выбрать папку React
+        $(byText("React")).click();
+        //выбрать папку General
+
+        //проверка результатов
+
+
+    }
 }
+
+
+
