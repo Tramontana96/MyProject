@@ -33,7 +33,7 @@ public class AutoTest {
             $("#permanentAddress").setValue("Калинина 62");
             //отправка результата
             $("#submit").click();
-            //проверка результата
+            //проверка результатов
             $("#output").shouldHave(text("Mihail"),
                 text("xelysqgbhju@gmail.com"),
                 text("Калинина 62"),
