@@ -90,8 +90,12 @@ public class AutoTest {
         $(byText("1996")).scrollTo().click();
         $(byText("3")).click();
         //предмет
-        //$("").setValue()
+        $("#subjectsInput").setValue("Ar").pressEnter();
         //увлечение(хобби)
+        $("#hobbies-checkbox-1").parent().click();
+        $("#hobbies-checkbox-2").parent().click();
+        $("#hobbies-checkbox-3").parent().click();
+        //$("")
         //файл(картинка)
         //текущий адрес
         //штат
