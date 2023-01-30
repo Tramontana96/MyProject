@@ -65,9 +65,34 @@ public class AutoTest {
         //выбираем вариант "Yes"
         $("#yesRadio").parent().click();
         //проверка результатов
-        $(".mt-3").parent().shouldHave(text("Yes"));
+        $(".mt-3").parent().shouldHave(text("Yes")); // не получается найти атрибут для проверки
+    }
+
+    @Test
+    void formPracticeForm() {
+        //открываем страницу формы
+        open("https://demoqa.com/automation-practice-form");
+        //имя
+        $("#firstName").setValue("Mihailo");
+        //фамилия
+        $("#lastName").setValue("Ivanov");
+        //электронная почта
+        $("#userEmail").setValue("xelysqgbhju@gmail.com");
+        //пол
+        $("#gender-radio-3").parent().click();
+        //номер телефона
+        $("#userNumber").setValue("1234567899");
+        //день рождения
+
+        //предмет
+        //увлечение(хобби)
+        //файл(картинка)
+        //текущий адрес
+        //штат
+        //город
+
+
     }
 }
-
 
 
