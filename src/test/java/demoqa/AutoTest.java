@@ -110,8 +110,17 @@ public class AutoTest {
         //отправка результата
         $("#submit").click();
         //проверка результата
-
-
+        $(".modal-content").shouldHave(text("Thanks for submitting the form"),
+                text("Mihailo Ivanov"),
+                text("xelysqgbhju@gmail.com"),
+                text("Other"),
+                text("1234567899"),
+                text("03 May,1996"),
+                text("Arts"),
+                text("Sports, Reading, Music"),
+                text("1.jpg"),
+                text("Калинина 74"),
+                text("NCR Delhi"));
     }
 }
 
