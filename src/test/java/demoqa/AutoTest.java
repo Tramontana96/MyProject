@@ -15,7 +15,7 @@ public class AutoTest {
     static void configure() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-       // Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
 
     }
 
@@ -33,7 +33,7 @@ public class AutoTest {
             $("#permanentAddress").setValue("Калинина 62");
             //отправка результата
             $("#submit").click();
-            //проверка результатов
+            //проверка результата
             $("#output").shouldHave(text("Mihail"),
                 text("xelysqgbhju@gmail.com"),
                 text("Калинина 62"),
@@ -52,7 +52,7 @@ public class AutoTest {
         $(byText("React")).click();
         //выбрать папку General
         $(".rct-title").click();
-        //проверка результатов
+        //проверка результата
         $("#result").shouldHave(text("commands"),
                 text("react"),
                 text("general"));
@@ -64,7 +64,7 @@ public class AutoTest {
         open("https://demoqa.com/radio-button");
         //выбираем вариант "Yes"
         $("#yesRadio").parent().click();
-        //проверка результатов
+        //проверка результата
         $(".mt-3").parent().shouldHave(text("Yes")); // не получается найти атрибут для проверки
     }
 
@@ -83,13 +83,20 @@ public class AutoTest {
         //номер телефона
         $("#userNumber").setValue("1234567899");
         //день рождения
-
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").click();
+        $(byText("May")).click();
+        $(".react-datepicker__year-select").click();
+        $(byText("1996")).scrollTo().click();
+        $(byText("3")).click();
         //предмет
+        //$("").setValue()
         //увлечение(хобби)
         //файл(картинка)
         //текущий адрес
         //штат
         //город
+        //проверка результата
 
 
     }
