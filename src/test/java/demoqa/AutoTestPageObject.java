@@ -1,6 +1,7 @@
 package demoqa;
 
 import com.codeborne.selenide.Configuration;
+import componentipageobject.Page;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -22,15 +23,17 @@ public class AutoTestPageObject {
 
     @Test
     void formPracticeForm() {
+
         //открываем страницу формы
-        open("https://demoqa.com/automation-practice-form");
-        executeJavaScript("$('footer').remove()");
-        executeJavaScript("$('#fixedban').remove()");
+        new Page().openAutoTest();
         //имя
+        new Page().firstName();
         $("#firstName").setValue("Mihailo");
         //фамилия
+        new Page().lastName();
         $("#lastName").setValue("Ivanov");
         //электронная почта
+        new Page().lastName();
         $("#userEmail").setValue("xelysqgbhju@gmail.com");
         //пол
         $("#gender-radio-3").parent().click();
