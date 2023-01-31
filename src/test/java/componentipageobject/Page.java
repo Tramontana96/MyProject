@@ -10,23 +10,23 @@ public class Page {
         executeJavaScript("$('#fixedban').remove()");
     }
 
-    public void  firstName() {
-        $("#firstName").setValue("Mihailo");
+    public void  firstName(String value) {
+        $("#firstName").setValue(value);
     }
 
-    public void lastName() {
-        $("#lastName").setValue("Ivanov");
+    public void lastName(String value) {
+        $("#lastName").setValue(value);
     }
 
-    public void userEmail() {
-        $("#userEmail").setValue("xelysqgbhju@gmail.com");
+    public void userEmail(String value) {
+        $("#userEmail").setValue(value);
     }
 
-    public void genderRadioButton() {
+    public void genderRadioButton(String value) {
         $("#gender-radio-3").parent().click();
     }
 
-    public void userNumber() {
-        $("#userNumber").setValue("1234567899");
+    public void userNumber(String value) {
+        $("#userNumber").setValue(value);
     }
 }

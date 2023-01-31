@@ -24,20 +24,24 @@ public class AutoTestPageObject {
     @Test
     void formPracticeForm() {
 
+        //переменные со значениями автотеста
+        String firstName = "Mihailo";
+        String lastName = "Ivanov";
+        String userEmail = "xelysqgbhju@gmail.com";
+        String genderRadioButton = "";
+
         //открываем страницу формы
         new Page().openAutoTest();
         //имя
-        new Page().firstName();
-        $("#firstName").setValue("Mihailo");
+        new Page().firstName(firstName);
         //фамилия
-        new Page().lastName();
-        $("#lastName").setValue("Ivanov");
+        new Page().lastName(lastName);
         //электронная почта
-        new Page().lastName();
-        $("#userEmail").setValue("xelysqgbhju@gmail.com");
+        new Page().userEmail(userEmail);
         //пол
-        $("#gender-radio-3").parent().click();
+        new Page().genderRadioButton("");
         //номер телефона
+        new Page().userNumber("1234567899");
         $("#userNumber").setValue("1234567899");
         //день рождения
         $("#dateOfBirthInput").click();
@@ -47,7 +51,7 @@ public class AutoTestPageObject {
         $(byText("1996")).scrollTo().click();
         $(byText("3")).click();
         //предмет
-        $("#subjectsInput").setValue("Ar").pressEnter();
+        $("#subjectsInput").setValue("Arts").pressEnter();
         //увлечения(хобби)
         $("#hobbies-checkbox-1").parent().click();
         $("#hobbies-checkbox-2").parent().click();
