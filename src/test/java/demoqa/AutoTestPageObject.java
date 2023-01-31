@@ -64,6 +64,7 @@ public class AutoTestPageObject {
         new Page().city(city);
         //отправка результата
         new Page().results();
+
         //проверка результата
         $(".modal-content").shouldHave(text("Thanks for submitting the form"),
                 text("Mihailo Ivanov"),
