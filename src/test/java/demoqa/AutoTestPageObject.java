@@ -28,7 +28,7 @@ public class AutoTestPageObject {
         String firstName = "Mihailo";
         String lastName = "Ivanov";
         String userEmail = "xelysqgbhju@gmail.com";
-        String genderRadioButton = "";
+        String userNumber = "1234567899";
 
         //открываем страницу формы
         new Page().openAutoTest();
@@ -39,10 +39,9 @@ public class AutoTestPageObject {
         //электронная почта
         new Page().userEmail(userEmail);
         //пол
-        new Page().genderRadioButton("");
+        new Page().genderRadioButton();
         //номер телефона
-        new Page().userNumber("1234567899");
-        $("#userNumber").setValue("1234567899");
+        new Page().userNumber(userNumber);
         //день рождения
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").click();

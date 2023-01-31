@@ -22,7 +22,7 @@ public class Page {
         $("#userEmail").setValue(value);
     }
 
-    public void genderRadioButton(String value) {
+    public void genderRadioButton() {
         $("#gender-radio-3").parent().click();
     }
 
