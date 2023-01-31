@@ -1,5 +1,7 @@
 package componentipageobject;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class Page {
@@ -28,5 +30,35 @@ public class Page {
 
     public void userNumber(String value) {
         $("#userNumber").setValue(value);
+    }
+
+    public void predmet(String value) {
+        $("#subjectsInput").setValue(value).pressEnter();
+    }
+
+    public void hobbies() {
+        $("#hobbies-checkbox-1").parent().click();
+        $("#hobbies-checkbox-2").parent().click();
+        $("#hobbies-checkbox-3").parent().click();
+    }
+
+    public void uploadPicture(String value) {
+        $("#uploadPicture").uploadFile(new File("src/test/resources/"+value));
+    }
+
+    public void currentAddress(String value) {
+        $("#currentAddress").setValue(value);
+    }
+
+    public void state(String value) {
+        $("#react-select-3-input").setValue(value).pressEnter();
+    }
+
+    public void city(String value) {
+        $("#react-select-4-input").setValue(value).pressEnter();
+    }
+
+    public void results() {
+        $("#submit").click();
     }
 }

@@ -1,6 +1,7 @@
 package demoqa;
 
 import com.codeborne.selenide.Configuration;
+import componentipageobject.Calendar;
 import componentipageobject.Page;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -8,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AutoTestPageObject {
@@ -24,11 +24,16 @@ public class AutoTestPageObject {
     @Test
     void formPracticeForm() {
 
-        //переменные со значениями автотеста
-        String firstName = "Mihailo";
-        String lastName = "Ivanov";
-        String userEmail = "xelysqgbhju@gmail.com";
-        String userNumber = "1234567899";
+        //переменные значений автотеста
+        String firstName = "Mihailo",
+                lastName = "Ivanov",
+                userEmail = "xelysqgbhju@gmail.com",
+                userNumber = "1234567899",
+                predmet = "Arts",
+                uploadPicture = "1.jpg",
+                currentAddress = "Калинина 74",
+                state = "NCR",
+                city = "Delhi";
 
         //открываем страницу формы
         new Page().openAutoTest();
@@ -43,28 +48,22 @@ public class AutoTestPageObject {
         //номер телефона
         new Page().userNumber(userNumber);
         //день рождения
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").click();
-        $(byText("May")).click();
-        $(".react-datepicker__year-select").click();
-        $(byText("1996")).scrollTo().click();
-        $(byText("3")).click();
+        new Calendar().setDate(day, month, year);
         //предмет
+        new Page().predmet(predmet);
         $("#subjectsInput").setValue("Arts").pressEnter();
         //увлечения(хобби)
-        $("#hobbies-checkbox-1").parent().click();
-        $("#hobbies-checkbox-2").parent().click();
-        $("#hobbies-checkbox-3").parent().click();
+        new Page().hobbies();
         //файл(картинка)
-        $("#uploadPicture").uploadFile(new File("src/test/resources/1.jpg"));
+        new Page().uploadPicture(uploadPicture);
         //текущий адрес
-        $("#currentAddress").setValue("Калинина 74");
+        new Page().currentAddress(currentAddress);
         //штат
-        $("#react-select-3-input").setValue("NCR").pressEnter();
+        new Page().state(state);
         //город
-        $("#react-select-4-input").setValue("Delhi").pressEnter();
+        new Page().city(city);
         //отправка результата
-        $("#submit").click();
+        new Page().results();
         //проверка результата
         $(".modal-content").shouldHave(text("Thanks for submitting the form"),
                 text("Mihailo Ivanov"),
