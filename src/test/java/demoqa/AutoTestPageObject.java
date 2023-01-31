@@ -1,8 +1,6 @@
 package demoqa;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -11,9 +9,8 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class AutoTest {
+public class AutoTestPageObject {
 
     @BeforeAll
     static void configure() {
@@ -21,58 +18,6 @@ public class AutoTest {
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = true;
 
-    }
-
-
-
-
-    @Test
-    void formTextBox() {
-            //открываем страницу формы
-            open("https://demoqa.com/text-box");
-            //заполняем поле имени
-            $("#userName").setValue("Mihail");
-            //заполняем поле почты
-            $("#userEmail").setValue("xelysqgbhju@gmail.com");
-            //пишем текущий адрес
-            $("#currentAddress").setValue("Калинина 62");
-            //пишем постоянный адрес
-            $("#permanentAddress").setValue("Калинина 62");
-            //отправка результата
-            $("#submit").click();
-            //проверка результата
-            $("#output").shouldHave(text("Mihail"),
-                text("xelysqgbhju@gmail.com"),
-                text("Калинина 62"),
-                text("Калинина 62"));
-    }
-
-    @Test
-    void formCheckBox() {
-        //открываем страницу формы
-        open("https://demoqa.com/checkbox");
-        //плюсом раскрыть всё дерево
-        $(".rct-option").click();
-        //выбрать папку Commands
-        $(".rct-title").click();
-        //выбрать папку React
-        $(byText("React")).click();
-        //выбрать папку General
-        $(".rct-title").click();
-        //проверка результата
-        $("#result").shouldHave(text("commands"),
-                text("react"),
-                text("general"));
-    }
-
-    @Test
-    void formRadioButton() {
-        //открываем страницу формы
-        open("https://demoqa.com/radio-button");
-        //выбираем вариант "Yes"
-        $("#yesRadio").parent().click();
-        //проверка результата
-        $(".mt-3").parent().shouldHave(text("Yes")); // не получается найти атрибут для проверки
     }
 
     @Test
