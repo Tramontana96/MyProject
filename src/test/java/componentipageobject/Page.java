@@ -6,6 +6,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Page {
 
+    public ModalResults modalResults = new ModalResults();
+    public Calendar calendar = new Calendar();
+
     public void openAutoTest() {
         open("https://demoqa.com/automation-practice-form");
         executeJavaScript("$('footer').remove()");
@@ -61,4 +64,14 @@ public class Page {
     public void results() {
         $("#submit").click();
     }
+
+    public Calendar dateOfBirthInput (String day, String month, String year) {
+        $("#dateOfBirthInput").click();
+        Calendar.setDate(day, month, year);
+    }
+
+    public ModalResults checkResult(String key, String value) {
+        modalResults.checkResult(key, value);
+    }
 }
+

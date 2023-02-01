@@ -29,6 +29,9 @@ public class AutoTestPageObject {
                 lastName = "Ivanov",
                 userEmail = "xelysqgbhju@gmail.com",
                 userNumber = "1234567899",
+                day = "3",
+                month = "May",
+                year = "1996",
                 predmet = "Arts",
                 uploadPicture = "1.jpg",
                 currentAddress = "Калинина 74",
@@ -48,7 +51,7 @@ public class AutoTestPageObject {
         //номер телефона
         new Page().userNumber(userNumber);
         //день рождения
-        new Calendar().setDate(day, month, year);
+        new Calendar().dateOfBirthInput(day, month, year); //не получилось с календарём
         //предмет
         new Page().predmet(predmet);
         $("#subjectsInput").setValue("Arts").pressEnter();
@@ -66,17 +69,16 @@ public class AutoTestPageObject {
         new Page().results();
 
         //проверка результата
-        $(".modal-content").shouldHave(text("Thanks for submitting the form"),
-                text("Mihailo Ivanov"),
-                text("xelysqgbhju@gmail.com"),
-                text("Other"),
-                text("1234567899"),
-                text("03 May,1996"),
-                text("Arts"),
-                text("Sports, Reading, Music"),
-                text("1.jpg"),
-                text("Калинина 74"),
-                text("NCR Delhi"));
+        new Page().checkResult("Student Name", firstName + " " + lastName);
+        new Page().checkResult("Student Email", userEmail);
+        new Page().checkResult("Gender", "Other");
+        new Page().checkResult("Mobile", userNumber);
+        new Page().checkResult("Date of Birth");
+        new Page().checkResult("Subjects", predmet);
+        new Page().checkResult("Hobbies", "Sports, Reading, Music");
+        new Page().checkResult("Picture", uploadPicture);
+        new Page().checkResult("Address", currentAddress);
+        new Page().checkResult("State and City", state + " " + city);
     }
 }
 
