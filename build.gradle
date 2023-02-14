@@ -32,12 +32,11 @@ java {
 }
 
 dependencies {
-    testImplementation ('org.junit.jupiter:junit-jupiter:5.8.2',
+    testImplementation ('org.junit.jupiter:junit-jupiter:5.9.2',
             'com.google.guava:guava:31.1-jre',
             'com.codeborne:selenide:6.11.2',
-    'io.qameta.allure:allure-selenide:2.20.1')
-    testRuntimeOnly ('org.slf4j:slf4j-api:2.0.6',
-            'org.junit.jupiter:junit-jupiter-engine:5.8.2')
+    'io.qameta.allure:allure-selenide:2.20.1',
+    'org.slf4j:slf4j-api:2.0.6')
 }
 
 test {
